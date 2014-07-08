@@ -1,1 +1,162 @@
-My GitHub Page
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>Full Demo</title>
+
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.caroufredsel/6.2.1/jquery.carouFredSel.packed.js"></script>
+</head>
+<body>
+
+<div class="b-multiSlideShow">
+	<div class="b-multiSlideShow-category">
+		<div class="js-category">
+			<div class="b-multiSlideShow-category-item" data-category="1">
+				<div class="b-multiSlideShow-main">
+					<div class="js-main">
+						<div class="b-multiSlideShow-main-item image1-1"></div>
+						<div class="b-multiSlideShow-main-item image1-2"></div>
+						<div class="b-multiSlideShow-main-item image1-3"></div>
+					</div>
+				</div>
+			</div>
+			<div class="b-multiSlideShow-category-item" data-category="2">
+				<div class="b-multiSlideShow-main">
+					<div class="js-main">
+						<div class="b-multiSlideShow-main-item image2-1"></div>
+						<div class="b-multiSlideShow-main-item image2-2"></div>
+						<div class="b-multiSlideShow-main-item image2-3"></div>
+					</div>
+				</div>
+			</div>
+			<div class="b-multiSlideShow-category-item" data-category="3">
+				<div class="b-multiSlideShow-main">
+					<div class="js-main">
+						<div class="b-multiSlideShow-main-item image3-1"></div>
+						<div class="b-multiSlideShow-main-item image3-2"></div>
+						<div class="b-multiSlideShow-main-item image3-3"></div>
+					</div>
+				</div>
+			</div>
+			<div class="b-multiSlideShow-category-item" data-category="4">
+				<div class="b-multiSlideShow-main">
+					<div class="js-main">
+						<div class="b-multiSlideShow-main-item image4-1"></div>
+						<div class="b-multiSlideShow-main-item image4-2"></div>
+						<div class="b-multiSlideShow-main-item image4-3"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!--
+ --><div class="b-multiSlideShow-previews">
+		<div class="b-multiSlideShow-mini">
+			<div class="js-mini">
+				<div class="b-multiSlideShow-mini-item image1" data-category="1"></div>
+				<div class="b-multiSlideShow-mini-item image2" data-category="2"></div>
+				<div class="b-multiSlideShow-mini-item image3" data-category="3"></div>
+				<div class="b-multiSlideShow-mini-item image4" data-category="4"></div>
+			</div>
+		</div>
+		<div class="b-multiSlideShow-mini">
+			<div class="js-mini">
+				<div class="b-multiSlideShow-mini-item image1" data-category="1"></div>
+				<div class="b-multiSlideShow-mini-item image2" data-category="2"></div>
+				<div class="b-multiSlideShow-mini-item image3" data-category="3"></div>
+				<div class="b-multiSlideShow-mini-item image4" data-category="4"></div>
+			</div>
+		</div>
+		<div class="b-multiSlideShow-mini">
+			<div class="js-mini">
+				<div class="b-multiSlideShow-mini-item image1" data-category="1"></div>
+				<div class="b-multiSlideShow-mini-item image2" data-category="2"></div>
+				<div class="b-multiSlideShow-mini-item image3" data-category="3"></div>
+				<div class="b-multiSlideShow-mini-item image4" data-category="4"></div>
+			</div>
+		</div>
+		<div class="b-multiSlideShow-mini">
+			<div class="js-mini">
+				<div class="b-multiSlideShow-mini-item image1" data-category="1"></div>
+				<div class="b-multiSlideShow-mini-item image2" data-category="2"></div>
+				<div class="b-multiSlideShow-mini-item image3" data-category="3"></div>
+				<div class="b-multiSlideShow-mini-item image4" data-category="4"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	//<![CDATA[
+	var sharedSettings = {
+		auto: {
+			play: false
+		},
+		scroll: {
+			duration: 500
+		}
+	};
+
+	var mainSettings = $.extend(sharedSettings, {
+		scroll: {
+			onBefore: function(data) {
+				var activeWidth = data.items.old.width();
+				data.items.visible.animate({width : activeWidth}, {duration: mainSettings.scroll.duration});
+			},
+			onAfter: function(data) {
+				data.items.old.removeClass('active');
+				data.items.old.removeAttr('style');
+				data.items.visible.addClass('active');
+			}
+		}
+	});
+	var mainAdvancedSettings = {
+		wrapper: {
+			classname: 'b-multiSlideShow-main-wrapper'
+		}
+	};
+	var mainCarousels = $('.js-main');
+	mainCarousels.each(function() {
+		var carousel = $(this);
+		carousel.append(carousel.children().clone());
+		carousel.children(':first').addClass('active');
+		carousel.click(function() {
+			carousel.trigger('next');
+		});
+	});
+	mainCarousels.carouFredSel(mainSettings, mainAdvancedSettings);
+
+
+	var miniSettings = $.extend(sharedSettings, {
+		scroll: {
+			onAfter: function(data) {
+				var category = data.items.visible.data('category');
+				var categoryItem = categoryCarousels.find('*[data-category="' + category + '"]');
+				categoryCarousels.trigger('slideTo', categoryItem);
+			}
+		}
+	});
+	var miniCarousels = $('.js-mini');
+	miniCarousels.carouFredSel(miniSettings);
+	miniCarousels.each(function() {
+		var carousel = $(this);
+		carousel.click(function() {
+			carousel.trigger('next');
+		});
+	});
+
+	var categorySettings = $.extend(sharedSettings, {});
+	var categoryAdvancedSettings = {
+		wrapper: {
+			classname: 'b-multiSlideShow-category-wrapper'
+		}
+	};
+	var categoryCarousels = $('.js-category');
+	categoryCarousels.carouFredSel(categorySettings, categoryAdvancedSettings);
+	//]]>
+</script>
+
+</body>
+</html>
