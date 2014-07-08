@@ -1,0 +1,105 @@
+/*------------------------------------*\
+    #STYLES
+\*------------------------------------*/
+/*------------------------------------*\
+    #SETTINGS
+\*------------------------------------*/
+/*------------------------------------*\
+    #PATHS
+\*------------------------------------*/
+/*------------------------------------*\
+    #CONFIG
+\*------------------------------------*/
+/*------------------------------------*\
+    #BLOCKS
+\*------------------------------------*/
+/*------------------------------------*\
+    #MULTI SLIDE SHOW
+\*------------------------------------*/
+.b-multiSlideShow {
+  width: 849px;
+  height: 400px; }
+
+.b-multiSlideShow-category, .b-multiSlideShow-mini, .b-multiSlideShow-category-item {
+  overflow: hidden; }
+
+.b-multiSlideShow-category {
+  vertical-align: top;
+  width: 700px;
+  height: 400px;
+  display: inline-block;
+  margin-right: 8px; }
+
+.b-multiSlideShow-category-wrapper {
+  width: 700px !important; }
+
+.b-multiSlideShow-main-wrapper {
+  width: 700px !important; }
+
+.b-multiSlideShow-previews {
+  vertical-align: top;
+  width: 141px;
+  height: 100%;
+  display: inline-block; }
+
+.b-multiSlideShow-mini {
+  width: 141px;
+  height: 94px;
+  margin-top: 8px;
+  background-color: green; }
+  .b-multiSlideShow-mini:first-child {
+    margin-top: 0; }
+
+.b-multiSlideShow-mini-item {
+  width: 141px;
+  height: 94px;
+  float: left;
+  background-size: cover; }
+  .b-multiSlideShow-mini-item.image1 {
+    background-color: #003f00; }
+  .b-multiSlideShow-mini-item.image2 {
+    background-color: #007f00; }
+  .b-multiSlideShow-mini-item.image3 {
+    background-color: #00bf00; }
+  .b-multiSlideShow-mini-item.image4 {
+    background-color: lime; }
+
+.b-multiSlideShow-category-item {
+  float: left; }
+
+.b-multiSlideShow-main {
+  vertical-align: top;
+  overflow: hidden; }
+
+.b-multiSlideShow-main-item {
+  width: 50px;
+  height: 400px;
+  display: inline-block;
+  float: left;
+  background-size: cover; }
+  .b-multiSlideShow-main-item.active {
+    width: 600px; }
+  .b-multiSlideShow-main-item.image1-1 {
+    background-color: #003f55; }
+  .b-multiSlideShow-main-item.image1-2 {
+    background-color: #003faa; }
+  .b-multiSlideShow-main-item.image1-3 {
+    background-color: #003fff; }
+  .b-multiSlideShow-main-item.image2-1 {
+    background-color: #007f55; }
+  .b-multiSlideShow-main-item.image2-2 {
+    background-color: #007faa; }
+  .b-multiSlideShow-main-item.image2-3 {
+    background-color: #007fff; }
+  .b-multiSlideShow-main-item.image3-1 {
+    background-color: #00bf55; }
+  .b-multiSlideShow-main-item.image3-2 {
+    background-color: #00bfaa; }
+  .b-multiSlideShow-main-item.image3-3 {
+    background-color: deepskyblue; }
+  .b-multiSlideShow-main-item.image4-1 {
+    background-color: #00ff55; }
+  .b-multiSlideShow-main-item.image4-2 {
+    background-color: #00ffaa; }
+  .b-multiSlideShow-main-item.image4-3 {
+    background-color: cyan; }
