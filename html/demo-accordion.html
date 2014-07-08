@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>Accordion Demo</title>
+
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.caroufredsel/6.2.1/jquery.carouFredSel.packed.js"></script>
+</head>
+<body>
+
+<div class="b-multiSlideShow">
+		<div class="b-multiSlideShow-main">
+			<div class="js-main">
+				<div class="b-multiSlideShow-main-item image1-1"></div>
+				<div class="b-multiSlideShow-main-item image1-2"></div>
+				<div class="b-multiSlideShow-main-item image1-3"></div>
+			</div>
+		</div>
+</div>
+
+<script type="text/javascript">
+	//<![CDATA[
+	var sharedSettings = {
+		auto: {
+			play: false
+		},
+		scroll: {
+			duration: 500
+		}
+	};
+
+	var mainSettings = $.extend(sharedSettings, {
+		scroll: {
+			onBefore: function(data) {
+				var activeWidth = data.items.old.width();
+				data.items.visible.animate({width : activeWidth}, {duration: mainSettings.scroll.duration});
+			},
+			onAfter: function(data) {
+				data.items.old.removeClass('active');
+				data.items.old.removeAttr('style');
+				data.items.visible.addClass('active');
+			}
+		}
+	});
+	var mainAdvancedSettings = {
+		wrapper: {
+			classname: 'b-multiSlideShow-main-wrapper'
+		}
+	};
+	var mainCarousels = $('.js-main');
+	mainCarousels.each(function() {
+		var carousel = $(this);
+		carousel.append(carousel.children().clone());
+		carousel.children(':first').addClass('active');
+		carousel.click(function() {
+			carousel.trigger('next');
+		});
+	});
+	mainCarousels.carouFredSel(mainSettings, mainAdvancedSettings);
+	//]]>
+</script>
+
+</body>
+</html>

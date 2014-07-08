@@ -11,6 +11,12 @@
     #CONFIG
 \*------------------------------------*/
 /*------------------------------------*\
+    #UTILITIES
+\*------------------------------------*/
+/*------------------------------------*\
+    #CLEARFIX
+\*------------------------------------*/
+/*------------------------------------*\
     #BLOCKS
 \*------------------------------------*/
 /*------------------------------------*\
@@ -20,7 +26,7 @@
   width: 849px;
   height: 400px; }
 
-.b-multiSlideShow-category, .b-multiSlideShow-mini, .b-multiSlideShow-category-item {
+.b-multiSlideShow-category, .b-multiSlideShow-category-item, .b-multiSlideShow-mini {
   overflow: hidden; }
 
 .b-multiSlideShow-category {
@@ -29,6 +35,14 @@
   height: 400px;
   display: inline-block;
   margin-right: 8px; }
+  .b-multiSlideShow-category:before, .b-multiSlideShow-category:after {
+    content: " ";
+    display: table; }
+  .b-multiSlideShow-category:after {
+    clear: both; }
+
+.b-multiSlideShow-category-item {
+  float: left; }
 
 .b-multiSlideShow-category-wrapper {
   width: 700px !important; }
@@ -64,12 +78,15 @@
   .b-multiSlideShow-mini-item.image4 {
     background-color: lime; }
 
-.b-multiSlideShow-category-item {
-  float: left; }
-
 .b-multiSlideShow-main {
   vertical-align: top;
-  overflow: hidden; }
+  overflow: hidden;
+  float: left; }
+  .b-multiSlideShow-main:before, .b-multiSlideShow-main:after {
+    content: " ";
+    display: table; }
+  .b-multiSlideShow-main:after {
+    clear: both; }
 
 .b-multiSlideShow-main-item {
   width: 50px;

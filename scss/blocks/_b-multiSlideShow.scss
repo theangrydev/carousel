@@ -24,12 +24,18 @@ $b-multiSlideShow-height: $b-multiSlideShow-categoryHeight;
 }
 
 .b-multiSlideShow-category {
+	@include clearfix;
 	@extend %f-multiSlideShow-slideShow;
 	vertical-align: top;
 	width: $b-multiSlideShow-categoryWidth;
 	height: $b-multiSlideShow-categoryHeight;
 	display: inline-block;
 	margin-right: $b-multiSlideShow-horizontalSpacing;
+}
+
+.b-multiSlideShow-category-item {
+	@extend %f-multiSlideShow-slideShow;
+	float: left;
 }
 
 .b-multiSlideShow-category-wrapper {
@@ -73,14 +79,11 @@ $b-multiSlideShow-height: $b-multiSlideShow-categoryHeight;
 	}
 }
 
-.b-multiSlideShow-category-item {
-	@extend %f-multiSlideShow-slideShow;
-	float: left;
-}
-
 .b-multiSlideShow-main {
+	@include clearfix;
 	vertical-align: top;
 	overflow: hidden;
+	float: left;
 }
 
 .b-multiSlideShow-main-item {
