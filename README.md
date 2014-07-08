@@ -2,6 +2,7 @@ Carousel
 ========
 
 To get the SCSS compile to work:
+
 1. Download Ruby from http://rubyinstaller.org/downloads/
 2. Run 'Start Command Prompt with Ruby' that should have been installed
 3. At that prompt run 'gem install sass'
