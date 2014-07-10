@@ -11,7 +11,9 @@
 </head>
 <body>
 
-<div class="b-multiSlideShow">
+<div class="b-page js-page">
+	<div class="b-header js-header"></div>
+	<div class="b-content js-content">
 		<div class="b-multiSlideShow-main">
 			<div class="js-main">
 				<div class="b-multiSlideShow-main-item image1-1"></div>
@@ -19,7 +21,10 @@
 				<div class="b-multiSlideShow-main-item image1-3"></div>
 			</div>
 		</div>
+	</div>
+	<div class="b-page-pushFooter"></div>
 </div>
+<div class="b-footer js-footer"></div>
 
 <script type="text/javascript">
 	//<![CDATA[
@@ -60,6 +65,17 @@
 		});
 	});
 	mainCarousels.carouFredSel(mainSettings, mainAdvancedSettings);
+
+	var centreContent = function() {
+		var pageHeight = $('.js-page').height();
+		var contentHeight = $('.js-content').height();
+		var headerHeight = $('.js-header').height();
+		var footerHeight = $('.js-footer').height();
+		var offset = (pageHeight - headerHeight - footerHeight - contentHeight) / 2;
+		$('.js-content').css('top', offset);
+	};
+	$(document).ready(centreContent);
+	$(window).resize(centreContent);
 	//]]>
 </script>
 
